@@ -1,0 +1,9 @@
+//console.log("Halo Dunia");
+const nama_depan = "Zidan";
+const tanggalLahir = "Zien";
+let umur = 21;
+
+console.log(nama_depan);
+console.log(tanggalLahir);
+console.log(umur);
+
