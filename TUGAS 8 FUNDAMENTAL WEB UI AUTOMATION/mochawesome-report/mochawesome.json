@@ -1,0 +1,215 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-17T08:03:12.766Z",
+    "end": "2026-02-17T08:03:35.929Z",
+    "duration": 23163,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "168e75f0-2ed8-48bd-9bfe-9321824eb183",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "83034ff7-94fc-49ae-a672-cbe4ee47ebec",
+          "title": "SauceDemo - Login Test",
+          "fullFile": "D:\\BOOTCAMP QA\\TUGAS 8 FUNDAMENTAL WEB AUTOMATION\\test\\login.test.js",
+          "file": "\\test\\login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"SauceDemo - Login Test\"",
+              "fullTitle": "SauceDemo - Login Test \"before all\" hook in \"SauceDemo - Login Test\"",
+              "timedOut": false,
+              "duration": 955,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\noptions.addArguments('--incognito');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "1edb3729-ad7b-4bc6-8355-cfc332334d3e",
+              "parentUUID": "83034ff7-94fc-49ae-a672-cbe4ee47ebec",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"SauceDemo - Login Test\"",
+              "fullTitle": "SauceDemo - Login Test \"after all\" hook in \"SauceDemo - Login Test\"",
+              "timedOut": false,
+              "duration": 82,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "f7cf8125-8198-49b8-b513-f9dd01722f9e",
+              "parentUUID": "83034ff7-94fc-49ae-a672-cbe4ee47ebec",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "User berhasil login",
+              "fullTitle": "SauceDemo - Login Test User berhasil login",
+              "timedOut": false,
+              "duration": 2781,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com');\n        // Assert Title\n        const title = await driver.getTitle();\n        assert.strictEqual(title, 'Swag Labs');\n        // Input Login\n        let username = await driver.findElement(By.css('[data-test=\"username\"]'));\n        let password = await driver.findElement(By.css('[data-test=\"password\"]'));\n        let loginBtn = await driver.findElement(By.id('login-button'));\n        await username.sendKeys('standard_user');\n        await password.sendKeys('secret_sauce');\n        await loginBtn.click();\n        // Wait sampai cart muncul\n        let cartIcon = await driver.wait(\n            until.elementLocated(By.css('[data-test=\"shopping-cart-link\"]')),\n            10000\n        );\n        await driver.wait(until.elementIsVisible(cartIcon), 5000);\n        // Assert login sukses\n        let appLogo = await driver.findElement(By.className('app_logo'));\n        let logoText = await appLogo.getText();\n        assert.strictEqual(logoText, 'Swag Labs');\n        console.log(\"Login sukses\");",
+              "err": {},
+              "uuid": "62c70af8-fb6d-4080-86be-4f82fc66dbce",
+              "parentUUID": "83034ff7-94fc-49ae-a672-cbe4ee47ebec",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "62c70af8-fb6d-4080-86be-4f82fc66dbce"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2781,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "5155d670-e172-48f5-a88a-dc256e4735cb",
+          "title": "SauceDemo - Sorting Test",
+          "fullFile": "D:\\BOOTCAMP QA\\TUGAS 8 FUNDAMENTAL WEB AUTOMATION\\test\\sorting.test.js",
+          "file": "\\test\\sorting.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"SauceDemo - Sorting Test\"",
+              "fullTitle": "SauceDemo - Sorting Test \"before all\" hook in \"SauceDemo - Sorting Test\"",
+              "timedOut": false,
+              "duration": 3462,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\noptions.addArguments('--incognito');\ndriver = await new Builder()\n    .forBrowser('chrome')\n    .setChromeOptions(options)\n    .build();\n// Login dulu sebelum sorting\nawait driver.get('https://www.saucedemo.com');\nlet username = await driver.findElement(By.css('[data-test=\"username\"]'));\nlet password = await driver.findElement(By.css('[data-test=\"password\"]'));\nlet loginBtn = await driver.findElement(By.id('login-button'));\nawait username.sendKeys('standard_user');\nawait password.sendKeys('secret_sauce');\nawait loginBtn.click();\nawait driver.wait(\n    until.elementLocated(By.css('[data-test=\"product-sort-container\"]')),\n    10000\n);",
+              "err": {},
+              "uuid": "e452d175-b085-490c-937d-a29c364cbf1d",
+              "parentUUID": "5155d670-e172-48f5-a88a-dc256e4735cb",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"SauceDemo - Sorting Test\"",
+              "fullTitle": "SauceDemo - Sorting Test \"after all\" hook in \"SauceDemo - Sorting Test\"",
+              "timedOut": false,
+              "duration": 98,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "bdc82287-d452-4c39-bcf1-a877913f0e25",
+              "parentUUID": "5155d670-e172-48f5-a88a-dc256e4735cb",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Sorting produk berhasil dijalankan",
+              "fullTitle": "SauceDemo - Sorting Test Sorting produk berhasil dijalankan",
+              "timedOut": false,
+              "duration": 15767,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "async function selectSort(optionText) {\n            let dropdown = await driver.findElement(By.css('[data-test=\"product-sort-container\"]'));\n            await dropdown.click();\n            let option = await driver.findElement(By.xpath(`//option[text()=\"${optionText}\"]`));\n            await option.click();\n            await driver.sleep(5000);\n        }\n        // Sort 1\n        await selectSort(\"Price (low to high)\");\n        // Sort 2\n        await selectSort(\"Price (high to low)\");\n        // Sort 3\n        await selectSort(\"Name (Z to A)\");\n        console.log(\"Semua sorting berhasil dijalankan\");\n        // Assertion sederhana biar ada validasi\n        let firstProduct = await driver.findElement(By.className('inventory_item_name'));\n        let productText = await firstProduct.getText();\n        assert.ok(productText.length > 0);",
+              "err": {},
+              "uuid": "ac627264-3230-4a36-a367-d33a323e3e65",
+              "parentUUID": "5155d670-e172-48f5-a88a-dc256e4735cb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ac627264-3230-4a36-a367-d33a323e3e65"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15767,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
