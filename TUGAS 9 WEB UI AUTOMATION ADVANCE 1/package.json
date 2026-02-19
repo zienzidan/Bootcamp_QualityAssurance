@@ -1,0 +1,23 @@
+{
+  "name": "selenium-mocha-digital-skola",
+  "version": "1.0.0",
+  "description": "Advanced Web UI Automation using Selenium WebDriver and Mocha",
+  "author": "Muhammad Zien Zidan",
+  "license": "ISC",
+  "scripts": {
+    "test": "mocha test --recursive --timeout 120000",
+    "chrome": "set BROWSER=chrome && mocha test --recursive --timeout 120000",
+    "firefox": "set BROWSER=firefox && mocha test --recursive --timeout 120000",
+    "report:mochawesome": "mocha test --recursive --timeout 120000 --reporter mochawesome",
+    "report:simple": "mocha test --recursive --timeout 120000 --reporter mocha-simple-html-reporter --reporter-options output=report.html",
+    "parallel": "mocha test --recursive --timeout 120000 --parallel"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.17.0"
+  },
+  "devDependencies": {
+    "mocha": "^10.4.0",
+    "mochawesome": "^7.1.3",
+    "mocha-simple-html-reporter": "^2.0.0"
+  }
+}
